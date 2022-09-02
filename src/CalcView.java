@@ -13,6 +13,8 @@ public class CalcView {
     private JLabel ectsLabel;
     private JLabel notenLabel;
     private JButton addButton;
+    private JPanel notenPanel;
+    private JPanel ectsPanel;
 
     private MainController mainController;
 
@@ -33,7 +35,14 @@ public class CalcView {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainController.addMarkToList(Double.parseDouble(notenTextField.getText()),Double.parseDouble(ectsTextField.getText()));
+                try{
+                    mainController.addMarkToList(Double.parseDouble(notenTextField.getText()), Double.parseDouble(ectsTextField.getText()));
+                    ectsTextField.setText("");
+                    notenTextField.setText("");
+                }catch(NumberFormatException n){
+                    JOptionPane.showMessageDialog(null,"Bitte gib eine valide Kommazahl wie z.B. 1.0 ein!\n" +
+                            "ACHTUNG: Ein valides Komma ist ein '.' und kein ','");
+                }
             }
         });
     }
