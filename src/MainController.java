@@ -4,20 +4,20 @@ public class MainController {
 
     private LinkedList<Note> markList;
 
-    private CalcView view;
-
     public static void main(String[] args) {
         new MainController();
     }
 
     public MainController(){
         markList = new LinkedList<>();
-        view = new CalcView(this);
+        CalcView view = new CalcView(this);
     }
+
     public void addMarkToList(double mark, double cp){
         Note note = new Note(mark,cp);
         markList.add(note);
     }
+
     public double calcAvgMark(){
         double allMarks = 0.0;
         double allCP = 0.0;

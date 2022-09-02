@@ -16,16 +16,12 @@ public class CalcView {
     private JPanel notenPanel;
     private JPanel ectsPanel;
 
-    private MainController mainController;
-
     public CalcView(MainController mainController){
         mainFrame = new JFrame();
         mainFrame.setContentPane(mainPanel);
         mainFrame.setSize(1200,700);
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        this.mainController = mainController;
         calcButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
